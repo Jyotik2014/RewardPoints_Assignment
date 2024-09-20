@@ -25,8 +25,8 @@ Customer Reward Point Calculation
 2. Used h2 DB , created two tables Customers and  Transactions where customer id used as foreign key.  
 
 3. I have created below 4 Apis ,
-http://localhost:8080/reward-points/totalReward/{carId} : This will return Total rewards for given customer
-http://localhost:8080/reward-points/monthlyReward/{carId}/{yearMonth} : This will return Monthly rewards for given customer
+http://localhost:8080/reward-points/totalReward/{custId} : This will return Total rewards for given customer
+http://localhost:8080/reward-points/monthlyReward/{custId}/{yearMonth} : This will return Monthly rewards for given customer
 http://localhost:8080/reward-points/totalRewardAll : This will return Total rewards for all customers
 http://localhost:8080/reward-points/monthlyRewardAll/{yearMonth} : This will return Monthly rewards for all customers
 
@@ -96,4 +96,16 @@ http://localhost:8080/reward-points/monthlyRewardAll/2024-07
 
 http://localhost:8080/reward-points/monthlyRewardAll/2024-17
 Please provide Valid year Month YYYY-MM eg.2024-07
+
+6. Customer and Transactions CRUD APIS
+http://localhost:8080/addCustomer
+http://localhost:8080/customers
+http://localhost:8080/updateCustomer/{custId}
+http://localhost:8080//deleteCustomers/{custId}
+
+http://localhost:8080/addTransaction
+http://localhost:8080/transactions
+http://localhost:8080/updateTransaction/{transactionId}/{custId}
+http://localhost:8080//deleteTransactions/{id}
+
 

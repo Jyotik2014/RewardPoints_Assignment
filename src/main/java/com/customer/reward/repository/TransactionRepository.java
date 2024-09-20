@@ -1,3 +1,6 @@
+/*
+ * Repository for Transactions for DB operations
+ */
 package com.customer.reward.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

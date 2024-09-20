@@ -1,3 +1,7 @@
+/*
+ * This is Restcontroller class for Customers CRUD operations
+ * CustomerService is used to perform CRUD operations
+ * */
 package com.customer.reward.controller;
 
 
@@ -23,6 +27,7 @@ public class CustomerController {
 	@Autowired 
 	private CustomerService customerService;
 	
+	//Save customer
 	@PostMapping("/addCustomer")
 	public ResponseEntity<Object> saveCustomer(@RequestBody Customer cust) {
 		try {
@@ -35,7 +40,7 @@ public class CustomerController {
 		
 	}
 	
-	
+	//Fetch List of all the customers
 	@GetMapping("/customers")
 	public ResponseEntity<Object> fetchAllCustomers()
 	{
@@ -48,7 +53,8 @@ public class CustomerController {
 			}
 	}
 
-	@PutMapping("/customers/{id}")
+	//Update Customer as per the customer id passed as path variable
+	@PutMapping("/updateCustomer/{id}")
 	public ResponseEntity<Object> updateCustomer(@RequestBody Customer cust ,@PathVariable Long id) {
 		try {
 			if (id <= 0) {
@@ -69,7 +75,8 @@ public class CustomerController {
 			}
 	}
 
-	@DeleteMapping("/customers/{id}")
+	//Delete Customer as per the customer id passed as path variable
+	@DeleteMapping("/deleteCustomer/{id}")
 	public ResponseEntity<Object> deleteCustomerById(@PathVariable Long id) {
 		try {
 			if (id <= 0) {

@@ -50,7 +50,7 @@ public void testUpdateCustomer() {
 	Customer newCust=new Customer();
 	newCust.setName("Ram");
 	newCust.setEmail("ram@abc.com");
-	ResponseEntity<Customer> response= testRestTemplate.exchange("/customers/"+custId, HttpMethod.PUT,new HttpEntity<Customer>(newCust),Customer.class);
+	ResponseEntity<Customer> response= testRestTemplate.exchange("/updateCustomer/"+custId, HttpMethod.PUT,new HttpEntity<Customer>(newCust),Customer.class);
 	assertEquals(HttpStatus.OK, response.getStatusCode());
 	assertEquals(newCust.getName(), response.getBody().getName());
 }
@@ -58,7 +58,7 @@ public void testUpdateCustomer() {
 @Test
 public void testDeleteCustomer() {
 	Long custId= 4L;
-	ResponseEntity<Void> response= testRestTemplate.exchange("/customers/"+custId, HttpMethod.DELETE,null,Void.class);
+	ResponseEntity<Void> response= testRestTemplate.exchange("/deleteCustomer/"+custId, HttpMethod.DELETE,null,Void.class);
 	assertEquals(HttpStatus.OK, response.getStatusCode());
 	
 }

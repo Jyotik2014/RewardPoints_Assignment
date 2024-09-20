@@ -1,3 +1,8 @@
+/*
+ * Rest Controller for reward point calculation 
+ * Calculated Mothly and total reward per customer and for all customers
+ * 
+ */
 package com.customer.reward.controller;
 
 
@@ -24,6 +29,7 @@ public class RewardPointsController {
 	
 	public static final Pattern YearMonth_pattern= Pattern.compile("^[0-9]{4}-[0-9]{2}$");
 	
+	// Total rewards for given customer id 
 	@GetMapping("/totalReward/{custId}")
 	public ResponseEntity<Object> calculateTotalRewardPointsByCustomerId(@PathVariable Long custId) {
 		try {
@@ -45,6 +51,7 @@ public class RewardPointsController {
 			}
 	}
 	
+	//monthly rewards for given customer 
 	@GetMapping("/monthlyReward/{custId}/{yearMonth}")
 	public ResponseEntity<Object> calculateMonthlyRewardPointsByCustomerId(@PathVariable Long custId,@PathVariable String yearMonth) {
 		try {
@@ -70,6 +77,7 @@ public class RewardPointsController {
 
 	}
 	
+	//Total rewards for all customers
 	@GetMapping("/totalRewardAll")
 	public ResponseEntity<Object> calculateTotalRewardPointsAllCustomer(){
 		try {
@@ -81,6 +89,7 @@ public class RewardPointsController {
 			}
 	}
 	
+	//Monthly rewards for all customers
 	@GetMapping("/monthlyRewardAll/{yearMonth}")
 	public ResponseEntity<Object> calculateMonthlyRewardPointsAllCustomer(@PathVariable String yearMonth){
 		try {

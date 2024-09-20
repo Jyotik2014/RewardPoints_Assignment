@@ -1,3 +1,7 @@
+/*
+ * This is Restcontroller class for Transactions CRUD operations
+ * TransactionService is used to perform CRUD operations
+ * */
 package com.customer.reward.controller;
 
 import java.util.List;
@@ -23,6 +27,7 @@ public class TransactionController {
 	@Autowired 
 	private TransactionService transactionService;
 	
+	//Save Transaction
 	@PostMapping("/addTransaction")
 	public ResponseEntity<Object> saveTransaction(@RequestBody Transaction transaction) {
 		try {
@@ -35,7 +40,7 @@ public class TransactionController {
 		
 	}
 
-		
+	//Fetch List of all transactions	
 	@GetMapping("/transactions")
 	public ResponseEntity<Object> fetchAllTransactions()
 	{
@@ -48,7 +53,8 @@ public class TransactionController {
 		}
 	}
 
-	@PutMapping("/transactions/{transactionId}/{custId}")
+	//Update transaction , transactionId passed as pathVariable
+	@PutMapping("/updateTransaction/{transactionId}/{custId}")
 	public ResponseEntity<Object> updateTransaction(@RequestBody Transaction transaction ,@PathVariable Long transactionId,@PathVariable Long custId) {
 		try {
 			if (custId <= 0 || transactionId <= 0 ) {
@@ -69,7 +75,8 @@ public class TransactionController {
 		
 	}
 
-	@DeleteMapping("/transactions/{transactionId}")
+	//Delete Transaction , transactionId passed as pathVariable
+	@DeleteMapping("/deleteTransaction/{transactionId}")
 	public ResponseEntity<Object> deleteTransactionById(@PathVariable Long transactionId) {
 		try {
 			if (transactionId <= 0 ) {

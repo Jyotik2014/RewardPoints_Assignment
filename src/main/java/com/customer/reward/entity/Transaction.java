@@ -1,6 +1,8 @@
+/*
+ * Entity class for Transactions table 
+ */
 package com.customer.reward.entity;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 

@@ -1,3 +1,6 @@
+/*
+ * Service implementation class for Reward point Calculation 
+ */
 package com.customer.reward.service;
 
 import java.time.LocalDate;

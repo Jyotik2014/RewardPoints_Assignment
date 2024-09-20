@@ -1,3 +1,7 @@
+/*
+ * Test class for RewardPointController 
+ * Calculating rewards as per the Monthly and Total for all and per customer
+ */
 package com.customer.reward.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

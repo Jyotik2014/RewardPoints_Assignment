@@ -1,3 +1,6 @@
+/*
+ * Entity class for Customers table 
+ */
 package com.customer.reward.entity;
 
 import jakarta.persistence.Entity;

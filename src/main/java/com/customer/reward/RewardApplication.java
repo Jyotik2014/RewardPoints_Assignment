@@ -1,3 +1,6 @@
+/*
+ * Main class for Reward point Calculation
+ */
 package com.customer.reward;
 
 import org.springframework.boot.SpringApplication;

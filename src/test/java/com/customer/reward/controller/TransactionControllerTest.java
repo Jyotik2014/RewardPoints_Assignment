@@ -58,7 +58,7 @@ public class TransactionControllerTest {
 	 * cust.setName("Ram"); cust.setEmail("Ram@abc.com"); newTran.setCustomer(cust);
 	 * newTran.setAmount((double) 100); newTran.setTransactionDate(new Date());
 	 * ResponseEntity<Transaction> response=
-	 * testRestTemplate.exchange("/transactions/"+tranId+"/"+cust.getId(),
+	 * testRestTemplate.exchange("/updateTransaction/"+tranId+"/"+cust.getId(),
 	 * HttpMethod.PUT,new HttpEntity<Transaction>(newTran),Transaction.class);
 	 * assertEquals(HttpStatus.OK, response.getStatusCode());
 	 * assertEquals(newTran.getAmount(), response.getBody().getAmount()); }
@@ -67,7 +67,7 @@ public class TransactionControllerTest {
 	@Test
 	public void testDeleteTransactionById() {
 		Long tranId= 13L;
-		ResponseEntity<Void> response= testRestTemplate.exchange("/transactions/"+tranId, HttpMethod.DELETE,null,Void.class);
+		ResponseEntity<Void> response= testRestTemplate.exchange("/deleteTransaction/"+tranId, HttpMethod.DELETE,null,Void.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		
 	}
