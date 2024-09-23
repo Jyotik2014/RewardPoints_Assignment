@@ -87,6 +87,8 @@ public class RewardPonitsServiceImpl implements RewardPointsService{
 		return monthlyRewardPoints;
 	}
 
+	
+	//Calculating Total reward points for all Customers
 	@Override
 	public Map<String, Integer> calculateTotalRewardPointsAllCustomer() {
 		Map<String, Integer> custmerRewardTotal = new HashMap<String, Integer>();
@@ -98,6 +100,7 @@ public class RewardPonitsServiceImpl implements RewardPointsService{
 		return custmerRewardTotal;
 	}
 
+	//Calculating Monthly reward points for all Customers
 	@Override
 	public Map<String, Integer> calculateMonthlyRewardPointsAllCustomer(String yearMonth) {
 		List<Transaction> allTransactions = transactionRepository.findAll();
