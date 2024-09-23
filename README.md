@@ -108,4 +108,146 @@ http://localhost:8080/transactions
 http://localhost:8080/updateTransaction/{transactionId}/{custId}
 http://localhost:8080//deleteTransactions/{id}
 
+API responses:
+http://localhost:8080/customers
+[
+  {
+    "id": 1,
+    "name": "Ram",
+    "email": "ram@abc.com"
+  },
+  {
+    "id": 2,
+    "name": "shyam",
+    "email": "shyam@abc.com"
+  },
+  {
+    "id": 3,
+    "name": "jaya",
+    "email": "jaya@abc.com"
+  }
+]
+http://localhost:8080/transactions
+[
+  {
+    "id": 1,
+    "customer": {
+      "id": 1,
+      "name": "Ram",
+      "email": "ram@abc.com"
+    },
+    "transactionDate": "2024-09-14",
+    "amount": 100
+  },
+  {
+    "id": 2,
+    "customer": {
+      "id": 2,
+      "name": "shyam",
+      "email": "shyam@abc.com"
+    },
+    "transactionDate": "2024-07-14",
+    "amount": 70
+  },
+  {
+    "id": 3,
+    "customer": {
+      "id": 3,
+      "name": "jaya",
+      "email": "jaya@abc.com"
+    },
+    "transactionDate": "2024-08-14",
+    "amount": 120
+  },
+  {
+    "id": 4,
+    "customer": {
+      "id": 1,
+      "name": "Ram",
+      "email": "ram@abc.com"
+    },
+    "transactionDate": "2024-08-14",
+    "amount": 150
+  },
+  {
+    "id": 5,
+    "customer": {
+      "id": 2,
+      "name": "shyam",
+      "email": "shyam@abc.com"
+    },
+    "transactionDate": "2024-08-14",
+    "amount": 200
+  },
+  {
+    "id": 6,
+    "customer": {
+      "id": 3,
+      "name": "jaya",
+      "email": "jaya@abc.com"
+    },
+    "transactionDate": "2024-09-14",
+    "amount": 250
+  },
+  {
+    "id": 7,
+    "customer": {
+      "id": 1,
+      "name": "Ram",
+      "email": "ram@abc.com"
+    },
+    "transactionDate": "2024-07-14",
+    "amount": 120
+  },
+  {
+    "id": 8,
+    "customer": {
+      "id": 2,
+      "name": "shyam",
+      "email": "shyam@abc.com"
+    },
+    "transactionDate": "2024-08-14",
+    "amount": 300
+  },
+  {
+    "id": 9,
+    "customer": {
+      "id": 3,
+      "name": "jaya",
+      "email": "jaya@abc.com"
+    },
+    "transactionDate": "2024-09-14",
+    "amount": 170
+  },
+  {
+    "id": 10,
+    "customer": {
+      "id": 1,
+      "name": "Ram",
+      "email": "ram@abc.com"
+    },
+    "transactionDate": "2024-07-14",
+    "amount": 160
+  },
+  {
+    "id": 11,
+    "customer": {
+      "id": 2,
+      "name": "shyam",
+      "email": "shyam@abc.com"
+    },
+    "transactionDate": "2024-08-14",
+    "amount": 180
+  },
+  {
+    "id": 12,
+    "customer": {
+      "id": 3,
+      "name": "jaya",
+      "email": "jaya@abc.com"
+    },
+    "transactionDate": "2024-09-14",
+    "amount": 200
+  }
+]
 
