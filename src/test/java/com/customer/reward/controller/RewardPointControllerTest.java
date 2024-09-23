@@ -32,15 +32,19 @@ public class RewardPointControllerTest {
 	@Test
 	public void testCalculateTotalRewardPointsByCustomerId() {
 		Long custId=1L;
+		assertNotNull(custId);
 		ResponseEntity<Integer> response = testRestTemplate.exchange(BASE_URL+"/totalReward/"+custId, HttpMethod.GET, null, Integer.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 	}
 	
+	
 	@Test
 	public void testcalculateMonthlyRewardPointsByCustomerId() {
 		Long custId=1L;
 		String yearMonth="2024-07";
+		assertNotNull(custId);
+		assertNotNull(yearMonth);
 		ResponseEntity<Integer> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Integer.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());

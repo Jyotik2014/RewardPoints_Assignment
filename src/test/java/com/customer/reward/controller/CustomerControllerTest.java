@@ -32,6 +32,7 @@ public void testSaveCustomer() {
 	cust.setId((long) 1);
 	cust.setName("Raj");
 	cust.setEmail("Raj@abc.com");
+	assertNotNull(cust);
 	ResponseEntity<Customer> response= testRestTemplate.postForEntity("/addCustomer", cust, Customer.class);
 	assertEquals(HttpStatus.OK, response.getStatusCode());
 	assertEquals(cust.getName(), response.getBody().getName());
@@ -47,6 +48,7 @@ public void testFetchAllCustomers() {
 @Test
 public void testUpdateCustomer() {
 	Long custId= 1L;
+	assertNotNull(custId);
 	Customer newCust=new Customer();
 	newCust.setName("Ram");
 	newCust.setEmail("ram@abc.com");
@@ -58,6 +60,7 @@ public void testUpdateCustomer() {
 @Test
 public void testDeleteCustomer() {
 	Long custId= 4L;
+	assertNotNull(custId);
 	ResponseEntity<Void> response= testRestTemplate.exchange("/deleteCustomer/"+custId, HttpMethod.DELETE,null,Void.class);
 	assertEquals(HttpStatus.OK, response.getStatusCode());
 	
