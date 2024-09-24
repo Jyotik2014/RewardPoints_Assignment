@@ -30,7 +30,7 @@ public class RewardPonitsServiceImpl implements RewardPointsService{
 	
 	
 	
-	
+	//Method for calculating reward point as per the given conditions
 	@Override
 	public Integer calculateRewardPoints(Double transactionAmount) {
 		// TODO Auto-generated method stub

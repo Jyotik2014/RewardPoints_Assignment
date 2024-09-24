@@ -106,7 +106,7 @@ public class RewardPointsController {
 						.body("Error occured while Calculating Monthly rewards for all customer");
 			}
 	}
-	
+	//Mrthod for year month validation
 	public boolean validateYearMonth(String yearMonth) {
 		String[] yearMonthSplit = yearMonth.split("-");
 		int year =Integer.parseInt(yearMonthSplit[0]);
