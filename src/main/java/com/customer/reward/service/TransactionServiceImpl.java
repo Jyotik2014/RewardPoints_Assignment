@@ -19,18 +19,22 @@ public class TransactionServiceImpl implements TransactionService{
 	private TransactionRepository transactionRepository;
 
 	private CustomerRepository customerRepository;
+	
+	//Saving Transaction
 	@Override
 	public Transaction saveTransaction(Transaction transaction) {
 		transactionRepository.save(transaction);
 		return transaction;
 	}
 
+	//Fetch all Transactions
 	@Override
 	public List<Transaction> fetchTransactionList() {
 		
 		return (List<Transaction>) transactionRepository.findAll();
 	}
 
+	//Update transaction
 	@Override
 	public Transaction updateTransaction(Transaction transaction, Long transactionId,Long custId) {
 		Transaction transactionDb = transactionRepository.findById(transactionId).get();
@@ -45,6 +49,7 @@ public class TransactionServiceImpl implements TransactionService{
 		
 	}
 
+	//Delete Transaction
 	@Override
 	public void deleteTransactionById(Long transactionId) {
 		transactionRepository.deleteById(transactionId);
