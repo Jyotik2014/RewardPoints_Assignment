@@ -48,7 +48,7 @@ public class RewardPointControllerTest {
 			if (custId <= 0) {
 				throw new IllegalArgumentException("Customer ID must be a positive number");
 			}
-		ResponseEntity<Integer> response = testRestTemplate.exchange(BASE_URL+"/totalReward/"+custId, HttpMethod.GET, null, Integer.class);
+		ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/totalReward/"+custId, HttpMethod.GET, null, Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 		}
@@ -77,7 +77,7 @@ public class RewardPointControllerTest {
 		String yearMonth="2024-07";
 		assertNotNull(custId);
 		assertNotNull(yearMonth);
-		ResponseEntity<Integer> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Integer.class);
+		ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 	}
@@ -92,7 +92,7 @@ public class RewardPointControllerTest {
 			if (custId <= 0) {
 				throw new IllegalArgumentException("Customer ID must be a positive number");
 			}
-			ResponseEntity<Integer> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Integer.class);
+			ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 		}

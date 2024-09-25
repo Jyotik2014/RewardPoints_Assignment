@@ -69,7 +69,9 @@ public class RewardPointsController {
 			if(!validateYearMonth(yearMonth)) {
 				throw new IllegalArgumentException("Please provide Valid year Month YYYY-MM eg.2024-07");
 			}
-			   return ResponseEntity.ok().body(rewardPointsService.calculateMonthlyRewardPointsByCustomerId(custId,yearMonth));
+			   Map<String, Integer> result = new HashMap<String, Integer>();
+			   result.put(custId+":"+yearMonth, rewardPointsService.calculateMonthlyRewardPointsByCustomerId(custId,yearMonth));
+			   return ResponseEntity.ok().body(result);
 		    }
 		    catch (NumberFormatException e) {
 			  return ResponseEntity.badRequest().body("Invalid customer ID or YearMonth format,for Customer ID use number and for year and Month use YYYY-MM format");
