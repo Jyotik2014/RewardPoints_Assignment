@@ -104,6 +104,6 @@ public class TransactionController {
 	
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 	public ResponseEntity<Object> handleValidationExceptions(MethodArgumentTypeMismatchException ex){
-		return ResponseEntity.badRequest().body("Arugument passed is not Valid for transactionIdD ");
+		return ResponseEntity.badRequest().body("Arugument passed is not Valid for transactionId ");
 	}
 }

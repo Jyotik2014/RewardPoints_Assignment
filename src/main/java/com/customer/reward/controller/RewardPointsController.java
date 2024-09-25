@@ -67,7 +67,7 @@ public class RewardPointsController {
 			   return ResponseEntity.ok().body(rewardPointsService.calculateMonthlyRewardPointsByCustomerId(custId,yearMonth));
 		    }
 		    catch (NumberFormatException e) {
-			  return ResponseEntity.badRequest().body("Invalid customer ID format");
+			  return ResponseEntity.badRequest().body("Invalid customer ID or YearMonth format,for Customer ID use number and for year and Month use YYYY-MM format");
 		    }
 		    catch (IllegalArgumentException e) {
 		    	return ResponseEntity.badRequest().body(e.getMessage());
@@ -132,7 +132,7 @@ public class RewardPointsController {
 
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
 		public ResponseEntity<Object> handleValidationExceptions(MethodArgumentTypeMismatchException ex){
-			return ResponseEntity.badRequest().body("Arugument passed is not Valid for Customer ID use number and for year and Month use YYYYMM format");
+			return ResponseEntity.badRequest().body("Arugument passed is not Valid for Customer ID use number and for year and Month use YYYY-MM format");
 		}
 	
 }
