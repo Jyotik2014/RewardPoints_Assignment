@@ -9,6 +9,8 @@ package com.customer.reward.controller;
 
 import java.security.PublicKey;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,10 @@ public class RewardPointsController {
 			if (custId <= 0) {
 				throw new IllegalArgumentException("Customer ID must be a positive number");
 			}
-			   return ResponseEntity.ok().body(rewardPointsService.calculateTotalRewardPointsByCustomerId(custId));
+			   Map<Long, Integer> result = new HashMap<Long, Integer>();
+			   result.put(custId, rewardPointsService.calculateTotalRewardPointsByCustomerId(custId));
+			   return ResponseEntity.ok().body(result);
+			   
 		    }
 		    catch (NumberFormatException e) {
 			  return ResponseEntity.badRequest().body("Invalid customer ID format");
@@ -109,7 +114,7 @@ public class RewardPointsController {
 						.body("Error occured while Calculating Monthly rewards for all customer");
 			}
 	}
-	//Mrthod for year month validation
+	//Method for year month validation
 	public boolean validateYearMonth(String yearMonth) {
 		boolean status=true;
 		try {

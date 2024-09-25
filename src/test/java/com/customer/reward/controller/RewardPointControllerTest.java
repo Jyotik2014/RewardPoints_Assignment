@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.HashMap;
-
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,7 +34,7 @@ public class RewardPointControllerTest {
 	public void testCalculateTotalRewardPointsByCustomerId() {
 		Long custId=1L;
 		assertNotNull(custId);
-		ResponseEntity<Integer> response = testRestTemplate.exchange(BASE_URL+"/totalReward/"+custId, HttpMethod.GET, null, Integer.class);
+		ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/totalReward/"+custId, HttpMethod.GET, null, Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 	}
