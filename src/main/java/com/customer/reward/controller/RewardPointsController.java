@@ -111,10 +111,12 @@ public class RewardPointsController {
 	}
 	//Mrthod for year month validation
 	public boolean validateYearMonth(String yearMonth) {
+		boolean status=true;
+		try {
 		String[] yearMonthSplit = yearMonth.split("-");
 		int year =Integer.parseInt(yearMonthSplit[0]);
 		int month =Integer.parseInt(yearMonthSplit[1]);
-		boolean status=true;
+		
 		if(YearMonth_pattern.matcher(yearMonth).matches()) {
 			if(year>LocalDate.now().getYear()) {
 				status=false;
@@ -127,12 +129,20 @@ public class RewardPointsController {
 		else {
 			status=false;
 		}
+		}
+		catch (Exception e) {
+			status=false;
+		}
 		return status;
 	}
 
-	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
-		public ResponseEntity<Object> handleValidationExceptions(MethodArgumentTypeMismatchException ex){
-			return ResponseEntity.badRequest().body("Arugument passed is not Valid for Customer ID use number and for year and Month use YYYY-MM format");
-		}
+	
+	  @ExceptionHandler(MethodArgumentTypeMismatchException.class) public
+	  ResponseEntity<Object>
+	  handleValidationExceptions(MethodArgumentTypeMismatchException ex){ return
+	  ResponseEntity.badRequest().
+	  body("Arugument passed is not Valid for Customer ID use number and for year and Month use YYYY-MM format"
+	  ); }
+	 
 	
 }

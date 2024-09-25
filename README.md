@@ -101,7 +101,13 @@ http://localhost:8080/reward-points/totalReward/A
 Arugument passed is not Valid for Customer ID use number and for year and Month use YYYY-MM format
 
 http://localhost:8080/reward-points/monthlyReward/1/2024-0A
-Invalid customer ID or YearMonth format,for Customer ID use number and for year and Month use YYYY-MM format
+Please provide Valid year Month YYYY-MM eg.2024-07
+
+http://localhost:8080/reward-points/monthlyReward/A/2024-09
+Arugument passed is not Valid for Customer ID use number and for year and Month use YYYY-MM format
+
+http://localhost:8080/reward-points/monthlyRewardAll/A024-07
+Please provide Valid year Month YYYY-MM eg.2024-07
 
 6. Customer and Transactions CRUD APIS
 http://localhost:8080/addCustomer
