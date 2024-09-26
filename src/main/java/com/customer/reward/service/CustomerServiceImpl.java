@@ -26,6 +26,12 @@ public class CustomerServiceImpl implements CustomerService{
 
 	//Fetching Customers List
 	@Override
+	public Customer getCustById(Long custId) {
+		    Customer cust= customerRepository.findById(custId).orElseThrow();
+			return cust;
+	}
+	//Fetching Customers List
+	@Override
 	public List<Customer> fetchCustomerList() {
 		return (List<Customer>) customerRepository.findAll();
 	}
@@ -33,10 +39,10 @@ public class CustomerServiceImpl implements CustomerService{
 	//Updating Customer for particular ID
 	@Override
 	public Customer updateCustomer(Customer cust, Long custId) {
-		    Customer custDb = customerRepository.findById(custId).get();
-		    if(cust.getName()!=null  && "".equalsIgnoreCase(cust.getName()))
+		    Customer custDb = getCustById(custId);
+		    if(cust.getName()!=null)
 		    	custDb.setName(cust.getName());
-		    if(cust.getEmail()!=null  && "".equalsIgnoreCase(cust.getEmail()))
+		    if(cust.getEmail()!=null)
 		    	custDb.setEmail(cust.getEmail());
 			return customerRepository.save(custDb);
 	}
