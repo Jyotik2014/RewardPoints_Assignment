@@ -39,7 +39,8 @@ http://localhost:8080/reward-points/monthlyRewardAll/2024-07</br>
 Basic validations applied for Cust id , transaction id and yearMonth</br>
 
 4. Junit testcases written for controller using TestRestTemplate</br>
-
+Please Run code coverage after running application as DB conflicts may occur as using in memory he DB which is initialized after running application
+<br>
 
 5. Data Used for testing</br>
 Schema:</br>
