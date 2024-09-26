@@ -19,10 +19,19 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = {"spring.sql.init.mode=never"})
+/*
+ * @ActiveProfiles("test")
+ * 
+ * @TestPropertySource(properties =
+ * {"spring.config.location=classpath:application-test.properties"})
+ */
 public class RewardPointControllerTest {
 	@Autowired
 	private TestRestTemplate testRestTemplate;

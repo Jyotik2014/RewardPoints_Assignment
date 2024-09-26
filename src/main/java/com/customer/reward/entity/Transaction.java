@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
 @Table(name="Transactions")
 public class Transaction {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name="customer_id")

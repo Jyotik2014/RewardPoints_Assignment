@@ -17,6 +17,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.customer.reward.entity.Customer;
@@ -24,6 +26,13 @@ import com.customer.reward.entity.Transaction;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = {"spring.sql.init.mode=never"})
+/*
+ * @ActiveProfiles("test")
+ * 
+ * @TestPropertySource(properties =
+ * {"spring.config.location=classpath:application-test.properties"})
+ */
 public class TransactionControllerTest {
 	@Autowired
 	private TestRestTemplate testRestTemplate;
