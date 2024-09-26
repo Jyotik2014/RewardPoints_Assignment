@@ -26,6 +26,13 @@ public class TransactionServiceImpl implements TransactionService{
 		transactionRepository.save(transaction);
 		return transaction;
 	}
+	
+	//Fetch Transaction by ID
+	@Override
+	public Transaction getTransactionById(Long transactionId) {
+		Transaction t = transactionRepository.findById(transactionId).orElseThrow();
+		return t;
+	}
 
 	//Fetch all Transactions
 	@Override
@@ -36,15 +43,12 @@ public class TransactionServiceImpl implements TransactionService{
 
 	//Update transaction
 	@Override
-	public Transaction updateTransaction(Transaction transaction, Long transactionId,Long custId) {
-		Transaction transactionDb = transactionRepository.findById(transactionId).get();
+	public Transaction updateTransaction(Transaction transaction, Long transactionId) {
+		Transaction transactionDb = getTransactionById(transactionId);
 		    if(transaction.getAmount()!=null)
 		    	transactionDb.setAmount(transaction.getAmount());
 		    if(transaction.getTransactionDate()!=null)
 		    	transactionDb.setTransactionDate(transaction.getTransactionDate());
-		    if(custId!=null) {
-		      transactionDb.setCustomer(customerRepository.findById(custId).get());
-		    }
 			return transactionRepository.save(transactionDb);
 		
 	}
@@ -54,5 +58,7 @@ public class TransactionServiceImpl implements TransactionService{
 	public void deleteTransactionById(Long transactionId) {
 		transactionRepository.deleteById(transactionId);
 	}
+
+	
 
 }

@@ -56,15 +56,15 @@ public class TransactionController {
 
 	//Update transaction , transactionId passed as pathVariable
 	@PutMapping("/updateTransaction/{transactionId}/{custId}")
-	public ResponseEntity<Object> updateTransaction(@RequestBody Transaction transaction ,@PathVariable Long transactionId,@PathVariable Long custId) {
+	public ResponseEntity<Object> updateTransaction(@RequestBody Transaction transaction ,@PathVariable Long transactionId) {
 		try {
-			if (custId <= 0 || transactionId <= 0 ) {
-				throw new IllegalArgumentException("Customer ID or Transaction ID must be a positive number");
+			if (transactionId <= 0 ) {
+				throw new IllegalArgumentException("Transaction ID must be a positive number");
 			}
-			   return ResponseEntity.ok().body( transactionService.updateTransaction(transaction, transactionId, custId));
+			   return ResponseEntity.ok().body( transactionService.updateTransaction(transaction, transactionId));
 		    }
 		    catch (NumberFormatException e) {
-			  return ResponseEntity.badRequest().body("Invalid customer ID/Transaction ID format");
+			  return ResponseEntity.badRequest().body("Invalid Transaction ID format");
 		    }
 		    catch (IllegalArgumentException e) {
 		    	return ResponseEntity.badRequest().body(e.getMessage());

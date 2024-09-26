@@ -1,10 +1,11 @@
 package com.customer.reward.service;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +16,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.customer.reward.entity.Customer;
-import com.customer.reward.repository.CustomerRepository;
+
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
@@ -50,9 +51,17 @@ public class CustomerServiceTest {
 		updateCustomer.setId(cust.getId());
 		
 		Customer retrievedCust =customerService.updateCustomer(updateCustomer,createdCustomer.getId());
-		assertEquals("Ravi", retrievedCust.getName());
+		assertEquals(updateCustomer.getName(), retrievedCust.getName());
 	    
 	}
+	
+
+	@Test
+	public void testGetCustByID() {
+		Long custId=5L;
+		assertNotNull(customerService.getCustById(custId));
+	}
+	
 	
 	@Test
 	public void testDeleteCustomer() {
