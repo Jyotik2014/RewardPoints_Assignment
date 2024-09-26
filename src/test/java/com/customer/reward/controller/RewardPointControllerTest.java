@@ -50,7 +50,7 @@ public class RewardPointControllerTest {
 	
 	//Testing Invalid response for Total rewards for cust id
 	@Test
-	public void testCalculateTotalRewardPointsByCustomerIdInvalid() {
+	public void testCustomerIdInvalid() {
 		Long custId=-1L;
 		assertNotNull(custId);
 		try {
@@ -61,11 +61,7 @@ public class RewardPointControllerTest {
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 		}
-		catch (NumberFormatException e) {
-			ResponseEntity<String> response = ResponseEntity.badRequest().body("Invalid customer ID format");
-			assertEquals("Invalid customer ID format",response.getBody());
-		    }
-		    catch (IllegalArgumentException e) {
+		  catch (IllegalArgumentException e) {
 		    	ResponseEntity<String> response = ResponseEntity.badRequest().body(e.getMessage());
 				assertEquals("Customer ID must be a positive number",response.getBody());
 			}
@@ -79,6 +75,7 @@ public class RewardPointControllerTest {
 		
 	}
 	
+		
 	//Testing valid response for Total rewards for cust id
 	@Test
 	public void testcalculateMonthlyRewardPointsByCustomerId() {
@@ -101,7 +98,7 @@ public class RewardPointControllerTest {
 			if (custId <= 0) {
 				throw new IllegalArgumentException("Customer ID must be a positive number");
 			}
-			ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Map.class);
+		ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/monthlyReward/"+custId+"/"+yearMonth, HttpMethod.GET, null, Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 		}
@@ -125,7 +122,7 @@ public class RewardPointControllerTest {
 	
 	@Test
 	public void testcalculateTotalRewardPointsAllCustomer() {
-		ResponseEntity<HashMap> response = testRestTemplate.exchange(BASE_URL+"/totalRewardAll", HttpMethod.GET, null, HashMap.class);
+		ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/totalRewardAll", HttpMethod.GET, null,Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 	}
@@ -133,7 +130,7 @@ public class RewardPointControllerTest {
 	public void calculateMonthlyRewardPointsAllCustomer() {
 		String yearMonth="2024-07";
 		assertNotNull(yearMonth);
-		ResponseEntity<HashMap> response = testRestTemplate.exchange(BASE_URL+"/monthlyRewardAll/"+yearMonth, HttpMethod.GET, null, HashMap.class);
+		ResponseEntity<Map> response = testRestTemplate.exchange(BASE_URL+"/monthlyRewardAll/"+yearMonth, HttpMethod.GET, null, Map.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
 	}

@@ -43,8 +43,7 @@ public class RewardPointsController {
 			}
 			   Map<Long, Integer> result = new HashMap<Long, Integer>();
 			   result.put(custId, rewardPointsService.calculateTotalRewardPointsByCustomerId(custId));
-			   return ResponseEntity.ok().body(result);
-			   
+			   return ResponseEntity.ok().body(result);			   
 		    }
 		    catch (NumberFormatException e) {
 			  return ResponseEntity.badRequest().body("Invalid customer ID format");
